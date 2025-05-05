@@ -1,0 +1,127 @@
+/* src/App.scss */
+$primary-text: #333;
+$secondary-text: #333;
+$accent-color: #e0e0e0;
+$focus-color: #007bff;
+$button-background: #dc3545; /* Red color from the '+' */
+$button-text-color: #fff;
+$background-color: #f4f4f4;
+$nav-background: #333;
+$search-bar-background: #000; /* New variable for search bar background */
+$search-bar-text-color: #fff; /* New variable for search bar text color */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: $primary-text;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center; 
+    padding-top: 1rem;
+    
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        border-radius: 5px; 
+        border: 1px solid $accent-color;
+        overflow: hidden;
+        max-width: 500px; 
+        margin-bottom: 1rem; 
+        width: 90%; 
+        background-color: $search-bar-background; 
+    }
+
+    .search-bar__input {
+        flex-grow: 1;
+        border: none;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        outline: none;
+        border-radius: 5px 0 0 5px;
+        background-color: transparent; /* Make input background transparent over the black */
+        color: $search-bar-text-color; /* White text color */
+
+        &::placeholder { /* Style the placeholder text */
+            color: lighten($search-bar-text-color, 30%); /* Light gray placeholder */
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($focus-color, 0.25);
+            border-color: $focus-color;
+        }
+    }
+
+    .search-bar__button {
+        background-color: $button-background;
+        color: $button-text-color;
+        border: none;
+        padding: 0.75rem 1rem;
+        font-size: 1.2rem; /* Make the '+' bigger */
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        outline: none;
+        transition: background-color 0.2s ease;
+        min-width: 50px; /* Ensure the button has some width */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg { /* Style for a potential search icon */
+            width: 1rem;
+            height: 1rem;
+            fill: $button-text-color;
+        }
+
+        /* Style for the '+' sign */
+        &:before {
+            content: '+';
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        &:hover {
+            background-color: darken($button-background, 10%);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.2rem rgba($focus-color, 0.25);
+        }
+    }
+
+    /* Navigation Styles (No significant changes needed) */
+    &__nav {
+        background-color: $nav-background;
+        color: $secondary-text;
+        padding: 1rem 0;
+        width: 100%; /* Make nav full width */
+    }
+
+    &__nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__nav-item {
+        margin: 0 1rem;
+    }
+
+    &__nav-link {
+        color: $secondary-text;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+}
