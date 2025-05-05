@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import * as AuthService from '../../services/auth'; 
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
     const [name, setName] = useState('');
@@ -8,12 +9,17 @@ function Signup() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const navigate = useNavigate();
 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError('');
-        setSuccessMessage('');
+        setSuccessMessage('Logue exitoso. Redirigiendo...');
+
+        setTimeout(() => {
+            navigate('/login');
+        }, 1500); 
 
         try {
             await AuthService.signup({ name, email, password});

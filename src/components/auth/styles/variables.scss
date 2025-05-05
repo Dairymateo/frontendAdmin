@@ -1,0 +1,32 @@
+$primary-color: #007bff;
+$primary-color-dark: darken($primary-color, 15%);
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$error-color: #dc3545;
+$white: #fff;
+$black: #000;
+
+// Colores de texto
+$text-color-primary: $black;
+$text-color-secondary: #555;
+
+// Colores de fondo
+$body-bg: #f8f9fa;
+
+// Bordes
+$border-color: #ccc;
+$border-radius-sm: 5px;
+
+// Espaciados
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+
+// Fuentes
+$font-size-sm: 0.8rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.2rem;
+$font-size-xl: 1.5rem;
+
+// Sombras
+$box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
