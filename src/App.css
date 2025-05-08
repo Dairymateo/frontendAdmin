@@ -1,107 +1,24 @@
-/* src/App.scss */
-/* Red color from the '+' */
-/* New variable for search bar background */
-/* New variable for search bar text color */
 body {
   font-family: "Arial", sans-serif;
-  margin: 0;
-  padding: 0;
   color: #333;
+  margin: 0;
 }
 
 .app {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 100vh;
-  align-items: center;
-  padding-top: 1rem;
-  /* Navigation Styles (No significant changes needed) */
+  align-items: stretch;
 }
-.app .search-bar {
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  border: 1px solid #e0e0e0;
-  overflow: hidden;
-  max-width: 500px;
-  margin-bottom: 1rem;
-  width: 90%;
-  background-color: #000;
-}
-.app .search-bar__input {
+
+.app__content {
   flex-grow: 1;
-  border: none;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  outline: none;
-  border-radius: 5px 0 0 5px;
-  background-color: transparent; /* Make input background transparent over the black */
-  color: #fff; /* White text color */
+  padding: 1rem;
+  box-sizing: border-box;
 }
-.app .search-bar__input::-moz-placeholder { /* Style the placeholder text */
-  color: white; /* Light gray placeholder */
-}
-.app .search-bar__input::placeholder { /* Style the placeholder text */
-  color: white; /* Light gray placeholder */
-}
-.app .search-bar__input:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  border-color: #007bff;
-}
-.app .search-bar__button {
-  background-color: #dc3545;
+
+.app__sidebar {
+  width: 220px;
+  background-color: #2b2b2b;
   color: #fff;
-  border: none;
-  padding: 0.75rem 1rem;
-  font-size: 1.2rem; /* Make the '+' bigger */
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  outline: none;
-  transition: background-color 0.2s ease;
-  min-width: 50px; /* Ensure the button has some width */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Style for the '+' sign */
-}
-.app .search-bar__button svg { /* Style for a potential search icon */
-  width: 1rem;
-  height: 1rem;
-  fill: #fff;
-}
-.app .search-bar__button:before {
-  content: "+";
-  font-size: 1.5rem;
-  line-height: 1;
-}
-.app .search-bar__button:hover {
-  background-color: #bd2130;
-}
-.app .search-bar__button:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-.app__nav {
-  background-color: #333;
-  color: #333;
-  padding: 1rem 0;
-  width: 100%; /* Make nav full width */
-}
-.app__nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-}
-.app__nav-item {
-  margin: 0 1rem;
-}
-.app__nav-link {
-  color: #333;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-.app__nav-link:hover {
-  color: #e0e0e0;
 }/*# sourceMappingURL=App.css.map */

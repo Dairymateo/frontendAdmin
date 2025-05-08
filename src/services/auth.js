@@ -20,7 +20,7 @@ export const signup = async (userData) => {
   export const login = async (credentials) => {
     try {
       const response = await axios.post(`${API_URL}/login`, credentials);
-      return response.data; // Esperamos que el backend devuelva un token y/o información del usuario
+      return response.data; 
     } catch (error) {
       if (error.response && error.response.data && error.response.data.message) {
         throw new Error(error.response.data.message); // Propagar el mensaje de error del backend
@@ -29,3 +29,17 @@ export const signup = async (userData) => {
       }
     }
   };
+
+  export const getUserInfo = async (userId, token) => {
+    try {
+        const response = await axios.get(`${API_URL}/users/${userId}`, { 
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return response.data; 
+    } catch (error) {
+        console.error('Error al obtener la información del usuario:', error);
+        return null;
+    }
+};

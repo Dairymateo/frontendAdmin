@@ -1,15 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './Login.css';
 import * as AuthService from '../../services/auth';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    //const navigagate = useNavigate();
-    
-    
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -19,13 +17,16 @@ function Login() {
             const response = await AuthService.login({ email, password });
             console.log('Login exitoso:', response);
 
-            localStorage.setItem('token', response.token); 
+            localStorage.setItem('authToken', response.accesstoken); 
+            localStorage.setItem('isAdmin', response.isAdmin); 
+            localStorage.setItem('userId', response.userId); 
 
-            //navigate('/');
+            navigate('/vehicles');
+
         } catch (error) {
             setError(error.message || 'Error al iniciar sesión verifica tus credenciales.');
         }
-    }
+    };
 
     return (
         <section className='login-page'>
@@ -58,7 +59,7 @@ function Login() {
             </form>
             <p className="login-page__text">Don't have an account? <a href="/signup" className="login-page__link">Sign up</a></p>
         </section>
-    )
+    );
 }
 
 export default Login;

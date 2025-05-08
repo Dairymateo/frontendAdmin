@@ -1,0 +1,49 @@
+/* src/components/SearchBar.scss */
+$primary-text: #333;
+$secondary-text: #333; 
+$accent-color: #e0e0e0;
+$focus-color: #007bff;
+$button-background: #dc3545;
+$button-text-color: #fff;
+$search-bar-background: #000; 
+$search-bar-text-color: #fff; 
+
+.search-bar {
+    display: flex;
+    flex-direction: column; 
+    align-items: stretch;
+    border-radius: 0;
+    overflow: visible;
+    max-width: none;
+    padding-top: 0;
+}
+
+.search-bar__nav-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 200px;
+
+}
+
+.search-bar__nav-item {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: stretch;
+}
+
+.search-bar__nav-link {
+  color: $search-bar-text-color; 
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  background-color: rgba($secondary-text, 0.1); 
+
+  &:hover {
+    color: $accent-color;
+    background-color: rgba($secondary-text, 0.2);
+  }
+}
