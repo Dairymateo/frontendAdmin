@@ -69,6 +69,7 @@ function VehiclesList() {
     };
 
     const handleEditClick = (id) => setEditingVehicleId(id);
+    const handleCancelEditVehicle = () => setEditingVehicleId(null);
 
     const handleUpdateVehicle = async (id, updatedVehicleData) => {
         if (isAdmin) {
@@ -150,7 +151,8 @@ function VehiclesList() {
                                     <VehicleForm
                                         initialValues={vehicle}
                                         onSubmit={(data) => handleUpdateVehicle(vehicle._id, data)}
-                                        onCancel={handleCancelAddVehicle}
+                                        onCancel={handleCancelEditVehicle}
+                                        
                                     />
                                 )}
                             </div>

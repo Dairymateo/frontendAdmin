@@ -1,13 +1,13 @@
-$primary-color: #4caf50;
-$primary-hover: darken($primary-color, 10%);
 $bg-gradient-start: rgba(38, 38, 92, 0.9);
 $bg-gradient-end: rgba(56, 0, 60, 0.8);
 $border-radius: 12px;
 $white: #fff;
 $text-color: #eaeaea;
-$font-size: 16px;
-$transition: all 0.3s ease;
+$primary-color: #4caf50;
 $error-color: #f44336;
+$font-size-regular: 16px;
+$font-size-h2: 2rem;
+$font-size-h3: 1.5rem;
 
 .vehicle-details-container {
   background: linear-gradient(to bottom right, $bg-gradient-start, $bg-gradient-end);
@@ -18,27 +18,43 @@ $error-color: #f44336;
   color: $text-color;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   margin: 20px auto;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 
   h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: $font-size-h2;
     margin-bottom: 15px;
     color: $white;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: $font-size-h3;
     margin-bottom: 10px;
     color: $primary-color;
   }
 
   p {
-    font-size: $font-size;
+    font-size: $font-size-regular;
     margin-bottom: 8px;
+
     strong {
       font-weight: bold;
       color: lighten($primary-color, 10%);
+    }
+  }
+
+  .back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: $primary-color;
+    color: $white;
+    text-decoration: none;
+    border-radius: $border-radius;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
     }
   }
 }

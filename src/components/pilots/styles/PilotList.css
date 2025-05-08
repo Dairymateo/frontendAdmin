@@ -69,12 +69,13 @@
   font-size: 1.2rem;
   margin-top: 0;
   margin-bottom: 5px;
-  color: white;
+  color: #fff;
 }
 .pilot-item p {
   margin-top: 0;
   margin-bottom: 5px;
   font-size: 16px;
+  color: #eaeaea;
 }
 .pilot-item .admin-controls {
   display: flex;
@@ -90,7 +91,7 @@
   transition: all 0.3s ease;
 }
 .pilot-item .admin-controls button:first-child {
-  background-color: #007bff;
+  background-color: #007bff; /* Blue for edit */
   color: #fff;
 }
 .pilot-item .admin-controls button:first-child:hover {
@@ -100,7 +101,7 @@
   background-color: #0056b3;
 }
 .pilot-item .admin-controls button:last-child {
-  background-color: #f44336;
+  background-color: #f44336; /* Red for delete */
   color: #fff;
 }
 .pilot-item .admin-controls button:last-child:hover {
@@ -129,4 +130,4 @@
   font-size: 0.9rem;
   margin-top: 20px;
   text-align: center;
-}/*# sourceMappingURL=PilotList.css.map */
+}

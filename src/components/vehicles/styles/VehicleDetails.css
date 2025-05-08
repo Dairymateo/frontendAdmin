@@ -28,6 +28,19 @@
   font-weight: bold;
   color: #6ec071;
 }
+.vehicle-details-container .back-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+.vehicle-details-container .back-button:hover {
+  background-color: #3d8b40;
+}
 
 .error-message {
   color: #f44336;

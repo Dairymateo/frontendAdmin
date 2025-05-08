@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import './styles/VehicleDetails.css';
 import * as VehicleService from "../../services/vehicles";
 
@@ -42,6 +42,11 @@ function VehicleDetails() {
             <p>Velocidad Maxima: {vehicle.velocidadPunta} </p>
             <p>Fiabilidad: {vehicle.fiabilidad} </p>
             <p>peso: {vehicle.peso} </p>
+
+            <Link to="/vehicles" className="back-button">
+                Volver a la lista de vehículos
+            </Link>
+
             
         </div>
     )

@@ -14,7 +14,7 @@ function PilotDetail() {
             setLoading(true);
             setError('');
             try {
-                const data = await PilotService.getPilotById(id); // Necesitas crear esta función en your pilot service
+                const data = await PilotService.getPilotById(id); 
                 setPilot(data);
                 setLoading(false);
             } catch (error) {

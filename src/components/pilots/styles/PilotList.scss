@@ -86,13 +86,14 @@ $success-color: green;
     font-size: 1.2rem;
     margin-top: 0;
     margin-bottom: 5px;
-    color: white;
+    color: $white;
   }
 
   p {
     margin-top: 0;
     margin-bottom: 5px;
     font-size: $font-size;
+    color: $text-color; // Añadido color para la información del piloto
   }
 
   .admin-controls {
@@ -109,7 +110,7 @@ $success-color: green;
       transition: $transition;
 
       &:first-child {
-        background-color: #007bff; 
+        background-color: #007bff; /* Blue for edit */
         color: $white;
 
         &:hover {
@@ -122,7 +123,7 @@ $success-color: green;
       }
 
       &:last-child {
-        background-color: $error-color; 
+        background-color: $error-color; /* Red for delete */
         color: $white;
 
         &:hover {

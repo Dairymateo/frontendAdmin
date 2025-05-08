@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as PilotService from "../../services/pilots"; 
 import PilotForm from "./PilotForm"; 
-//import './styles/PilotsList.css';
+import './styles/PilotList.css';
 
 function PilotsList() {
     const [pilots, setPilots] = useState([]);
@@ -63,6 +63,7 @@ function PilotsList() {
     };
 
     const handleEditClick = (id) => setEditingPilotId(id);
+    const handleCancelEditPilot = () => setEditingPilotId(null);
 
     const handleUpdatePilot = async (id, updatedPilotData) => {
         if (isAdmin) {
@@ -140,7 +141,7 @@ function PilotsList() {
                                     <PilotForm
                                         initialValues={pilot}
                                         onSubmit={(data) => handleUpdatePilot(pilot._id, data)}
-                                        onCancel={handleCancelAddPilot}
+                                        onCancel={handleCancelEditPilot}
                                     />
                                 )}
                             </div>
