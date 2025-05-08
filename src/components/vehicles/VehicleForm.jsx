@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import './styles/VehicleForm.css';
+import { f1Teams } from '../../constants/f1Teams'; // Importa la lista de equipos
 
 function VehicleForm({ initialValues, onSubmit, onCancel }) {
     const [formData, setFormData] = useState({
@@ -38,7 +38,20 @@ function VehicleForm({ initialValues, onSubmit, onCancel }) {
         <form onSubmit={handleSubmit} className="vehicle-form">
             <div className="form-group">
                 <label htmlFor="equipo">Equipo:</label>
-                <input type="text" id="equipo" name="equipo" value={formData.equipo} onChange={handleChange} required />
+                <select
+                    id="equipo"
+                    name="equipo"
+                    value={formData.equipo}
+                    onChange={handleChange}
+                    required
+                >
+                    <option value="">Seleccionar equipo</option>
+                    {f1Teams.map(team => (
+                        <option key={team} value={team}>
+                            {team}
+                        </option>
+                    ))}
+                </select>
             </div>
             <div className="form-group">
                 <label htmlFor="name">Nombre:</label>

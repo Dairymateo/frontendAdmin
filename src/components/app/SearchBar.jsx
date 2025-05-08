@@ -11,6 +11,7 @@ function SearchBar() {
         <ul className="search-bar__nav-list">
           <li className="search-bar__nav-item"><Link to="/" className="search-bar__nav-link">Home</Link></li>
           <li className="search-bar__nav-item"><Link to="/vehicles" className="search-bar__nav-link">Vehicles</Link></li>
+          <li className="search-bar__nav-item"><Link to="/pilots" className="search-bar__nav-link">Pilot's</Link></li>
         </ul>
       </nav>
     </div>
