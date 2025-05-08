@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as VehicleService from "../../services/vehicles";
-import { f1Teams } from '../../constants/f1Teams'; // Importa la lista de equipos
+import { f1Teams } from '../../constants/f1Teams'; 
+import './styles/PilotForm.css'; 
 
 function PilotForm({ initialValues, onSubmit, onCancel }) {
     const [formData, setFormData] = useState({

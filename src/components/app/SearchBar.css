@@ -1,38 +1,58 @@
-/* src/components/SearchBar.scss */
+@charset "UTF-8";
 .search-bar {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  border-radius: 0;
-  overflow: visible;
-  max-width: none;
-  padding-top: 0;
+  background-color: #222;
+  color: #eee;
+  width: 220px;
+  height: 100vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow-y: auto; /* Añadido para contenido largo */
+}
+
+.search-bar__logo {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.6rem; /* Ligeramente más grande */
+  font-weight: bold;
+  color: #007bff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .search-bar__nav-list {
   list-style: none;
   padding: 0;
-  margin-top: 200px;
+  margin-top: 1.5rem; /* Ligeramente menos margen superior */
 }
 
 .search-bar__nav-item {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
+  margin-bottom: 0.75rem;
+  display: block;
 }
 
 .search-bar__nav-link {
-  color: #fff;
+  display: block;
+  color: #eee;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  background-color: rgba(51, 51, 51, 0.1);
+  font-weight: 300; /* Más ligero por defecto */
+  transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease; /* Añadida transición para padding */
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
 }
 .search-bar__nav-link:hover {
-  color: #e0e0e0;
-  background-color: rgba(51, 51, 51, 0.2);
+  color: #3395ff; /* Ligeramente más claro al hacer hover */
+  background-color: rgba(0, 123, 255, 0.15);
+  padding-left: 1.5rem; /* Pequeño efecto de deslizamiento al hacer hover */
+}
+.search-bar__nav-link.active {
+  background-color: #007bff;
+  color: #222;
+  font-weight: 500; /* Un poco más grueso para activo */
 }/*# sourceMappingURL=SearchBar.css.map */

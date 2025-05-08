@@ -1,50 +1,58 @@
-
-$primary-text: #333;
-$secondary-text: #555;
-$tertiary-text: #666;
-$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-$white-color: #fff;
-$border-radius: 8px;
+$primary-color: #4caf50;
+$primary-hover: darken($primary-color, 10%);
+$bg-gradient-start: rgba(38, 38, 92, 0.9);
+$bg-gradient-end: rgba(56, 0, 60, 0.8);
+$border-radius: 12px;
+$white: #fff;
+$text-color: #eaeaea;
+$font-size: 16px;
+$transition: all 0.3s ease;
+$error-color: #f44336;
 
 .vehicle-details-container {
-    padding: 2rem;
-    background-color: $white-color;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    margin: 2rem auto;
-    max-width: 700px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+  background: linear-gradient(to bottom right, $bg-gradient-start, $bg-gradient-end);
+  padding: 30px;
+  border-radius: $border-radius;
+  max-width: 600px;
+  width: 95%;
+  color: $text-color;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+  font-family: 'Segoe UI', sans-serif;
 
-.vehicle-details-container__title {
-    color: $primary-text;
-    margin-bottom: 1.5rem;
+  h2 {
     text-align: center;
     font-size: 2rem;
-}
+    margin-bottom: 15px;
+    color: $white;
+  }
 
-.vehicle-details-container__name {
-    color: $secondary-text;
-    margin-bottom: 1.5rem;
-    text-align: center;
+  h3 {
     font-size: 1.5rem;
-}
+    margin-bottom: 10px;
+    color: $primary-color;
+  }
 
-.vehicle-details-container__property {
-    color: $tertiary-text;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-    max-width: 400px; 
-    align-items: center;
-
-    &-label {
-        font-weight: bold;
-        width: 120px; 
+  p {
+    font-size: $font-size;
+    margin-bottom: 8px;
+    strong {
+      font-weight: bold;
+      color: lighten($primary-color, 10%);
     }
+  }
 }
 
+.error-message {
+  color: $error-color;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.loading-message {
+  color: $text-color;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  text-align: center;
+}

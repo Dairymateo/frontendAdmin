@@ -1,0 +1,78 @@
+.pilot-detail-container {
+  background: linear-gradient(to bottom right, rgba(38, 38, 92, 0.9), rgba(56, 0, 60, 0.8));
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 95%;
+  color: #eaeaea;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.pilot-detail-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.pilot-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pilot-info p {
+  font-size: 16px;
+}
+
+.pilot-info strong {
+  font-weight: bold;
+  color: #6ec071;
+}
+
+.pilot-info a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.pilot-info a:hover {
+  text-decoration: underline;
+  color: #3d8b40;
+}
+
+.back-to-list {
+  display: block;
+  text-align: center;
+  padding: 10px 15px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #4caf50;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+.back-to-list:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.error-message {
+  text-align: center;
+  color: #f44336;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.loading-message {
+  text-align: center;
+  color: #eaeaea;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}/*# sourceMappingURL=PilotDetail.css.map */

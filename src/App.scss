@@ -1,6 +1,5 @@
-
 $primary-text: #333;
-$secondary-text: #333; 
+$secondary-text: #333;
 $accent-color: #e0e0e0;
 $focus-color: #007bff;
 $button-background: #dc3545;
@@ -11,33 +10,21 @@ $search-bar-background: #2b2b2b;
 $search-bar-text-color: #fff;
 $sidebar-width: 220px;
 
-body {
-    font-family: 'Arial', sans-serif;
-    color: $primary-text;
-    margin: 0;
+.app-container { /* Renamed 'app' to avoid potential global style conflicts */
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  align-items: stretch;
 }
 
-.app {
-    display: flex;
-    flex-direction: row; 
-    min-height: 100vh; 
-    align-items: stretch;
-    
-
+.app-container__content { /* Renamed 'app__content' */
+  flex-grow: 1;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-.app__content {
-    flex-grow: 1; 
-    padding: 1rem;
-    box-sizing: border-box;
-    
-}
-
-
-.app__sidebar {
-    width: $sidebar-width;
-    background-color: $search-bar-background;
-    color: $search-bar-text-color;
-
-
+.app-container__sidebar { /* Renamed 'app__sidebar' */
+  width: $sidebar-width;
+  background-color: $search-bar-background;
+  color: $search-bar-text-color;
 }

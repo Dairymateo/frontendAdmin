@@ -1,40 +1,44 @@
 .vehicle-details-container {
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 2rem auto;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: linear-gradient(to bottom right, rgba(38, 38, 92, 0.9), rgba(56, 0, 60, 0.8));
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 95%;
+  color: #eaeaea;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+  font-family: "Segoe UI", sans-serif;
 }
-
-.vehicle-details-container__title {
-  color: #333;
-  margin-bottom: 1.5rem;
+.vehicle-details-container h2 {
   text-align: center;
   font-size: 2rem;
+  margin-bottom: 15px;
+  color: #fff;
 }
-
-.vehicle-details-container__name {
-  color: #555;
-  margin-bottom: 1.5rem;
-  text-align: center;
+.vehicle-details-container h3 {
   font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #4caf50;
+}
+.vehicle-details-container p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.vehicle-details-container p strong {
+  font-weight: bold;
+  color: #6ec071;
 }
 
-.vehicle-details-container__property {
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 1rem;
-  width: 100%;
-  max-width: 400px;
-  align-items: center;
+.error-message {
+  color: #f44336;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  text-align: center;
 }
-.vehicle-details-container__property-label {
-  font-weight: bold;
-  width: 120px;
+
+.loading-message {
+  color: #eaeaea;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  text-align: center;
 }/*# sourceMappingURL=VehicleDetails.css.map */

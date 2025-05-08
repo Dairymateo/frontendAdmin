@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import * as PilotService from '../../services/pilots';
-//import './styles/PilotDetail.css'; 
+import './styles/PilotDetail.css'; 
 
 function PilotDetail() {
     const { id } = useParams();

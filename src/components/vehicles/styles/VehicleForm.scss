@@ -1,0 +1,136 @@
+$primary-color: #4caf50;
+$primary-hover: darken($primary-color, 10%);
+$bg-gradient-start: rgba(38, 38, 92, 0.9);
+$bg-gradient-end: rgba(56, 0, 60, 0.8);
+$border-radius: 12px;
+$white: #fff;
+$text-color: #eaeaea;
+$font-size: 16px;
+$transition: all 0.3s ease;
+$error-color: #f44336;
+$select-background-color: $bg-gradient-start; /* Fondo del select */
+$select-text-color: $white; /* Color del texto del select (sin desplegar) */
+$select-border-color: lighten($bg-gradient-end, 20%); /* Color del borde del select */
+$select-option-background-color: #fff; /* Fondo de las opciones desplegadas */
+$select-option-text-color: #333; /* Color del texto de las opciones desplegadas */
+$select-option-hover-background: #f0f0f0; /* Fondo de la opción al hacer hover */
+
+.vehicle-form {
+  background: linear-gradient(to bottom right, $bg-gradient-start, $bg-gradient-end);
+  padding: 30px;
+  border-radius: $border-radius;
+  max-width: 500px;
+  width: 90%;
+  color: $text-color;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: $white;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      padding: 10px 15px;
+      border: none;
+      border-radius: $border-radius;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: $white;
+      font-size: $font-size;
+      outline: none;
+      transition: $transition;
+
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    select {
+      appearance: none;
+      background-color: $select-background-color;
+      color: $select-text-color;
+      border: 1px solid $select-border-color;
+      border-radius: $border-radius;
+      padding: 10px 15px;
+      font-size: $font-size;
+      outline: none;
+      cursor: pointer;
+      background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23fff" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 1.5em;
+      transition: border-color $transition;
+
+      &:focus {
+        border-color: $primary-color;
+      }
+
+      /* Estilos para las opciones desplegadas */
+      option {
+        color: $select-option-text-color;
+        background-color: $select-option-background-color;
+
+        &:hover {
+          background-color: $select-option-hover-background;
+        }
+      }
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: $border-radius;
+      font-size: $font-size;
+      font-weight: bold;
+      cursor: pointer;
+      transition: $transition;
+
+      &:first-child {
+        background-color: $primary-color;
+        color: $white;
+
+        &:hover {
+          background-color: $primary-hover;
+        }
+
+        &:active {
+          background-color: darken($primary-color, 15%);
+        }
+      }
+
+      &:last-child {
+        background-color: transparent;
+        color: $white;
+        border: 2px solid $primary-color;
+
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+          color: $text-color;
+        }
+
+        &:active {
+          background-color: $primary-color;
+          color: $white;
+        }
+      }
+    }
+  }
+}

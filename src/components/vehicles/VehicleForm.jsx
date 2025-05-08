@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { f1Teams } from '../../constants/f1Teams'; // Importa la lista de equipos
+import { f1Teams } from '../../constants/f1Teams'; 
+import './styles/VehicleForm.css';
 
 function VehicleForm({ initialValues, onSubmit, onCancel }) {
     const [formData, setFormData] = useState({

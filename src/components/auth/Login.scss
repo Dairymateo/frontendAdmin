@@ -1,112 +1,136 @@
-$primary-color: #007bff;
-$primary-color-dark: darken($primary-color, 15%);
-$secondary-color: #6c757d;
-$success-color: #28a745;
-$error-color: #dc3545;
+// Variables
+$primary-color: #4caf50;
+$primary-hover: darken($primary-color, 10%);
+$bg-gradient-start: rgba(38, 38, 92, 0.9);
+$bg-gradient-end: rgba(56, 0, 60, 0.8);
+$input-bg: rgba(255, 255, 255, 0.1);
+$border-radius: 12px;
 $white: #fff;
-$black: #000;
+$text-color: #eaeaea;
+$font-size: 16px;
+$transition: all 0.3s ease;
+$error-color: #f44336;
 
-// Colores de texto
-$text-color-primary: $black;
-$text-color-secondary: #555;
-
-// Colores de fondo
-$body-bg: #f8f9fa;
-
-// Bordes
-$border-color: #ccc;
-$border-radius-sm: 5px;
-
-// Espaciados
-$spacing-sm: 8px;
-$spacing-md: 16px;
-$spacing-lg: 24px;
-
-// Fuentes
-$font-size-sm: 0.8rem;
-$font-size-md: 1rem;
-$font-size-lg: 1.2rem;
-$font-size-xl: 1.5rem;
-
-// Sombras
-$box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-
-
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .login-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: $spacing-md; 
+  background: linear-gradient(to bottom right, $bg-gradient-start, $bg-gradient-end);
+  padding: 60px 60px 60px 40px;
+  border-radius: $border-radius;
+  max-width: 400px;
+  width: 100%;
+  color: $text-color;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 
   &__title {
-    font-size: $font-size-xl; 
-    margin-bottom: $spacing-lg;
-    color: $primary-color; 
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 24px;
+    color: $white;
   }
 
   &__form {
-    width: 80%;
-    max-width: 400px;
     display: flex;
     flex-direction: column;
-    background-color: $white; 
-    padding: $spacing-lg;
-    border-radius: $border-radius-sm; 
-    box-shadow: $box-shadow-sm; 
+    gap: 24px;
   }
 
   &__input-group {
-    margin-bottom: $spacing-md;
+    position: relative;
 
-    &__label {
-      display: block;
-      margin-bottom: $spacing-sm;
-      font-weight: bold;
-      color: $text-color-primary; 
-    }
-
-    &__input {
-      padding: $spacing-sm;
-      border: 1px solid $border-color; 
-      border-radius: $border-radius-sm;
-      font-size: $font-size-md;
-      color: $text-color-secondary; 
+    input {
+      width: 85%;
+      padding: 14px 44px 12px 16px;
+      border: none;
+      border-radius: $border-radius;
+      background-color: $input-bg;
+      color: $white;
+      font-size: $font-size;
+      outline: none;
+      transition: $transition;
 
       &:focus {
-        outline: none;
-        border-color: $primary-color-dark; 
-        box-shadow: 0 0 5px rgba($primary-color, 0.5); 
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    i {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $white;
+    }
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    a {
+      color: lighten($primary-color, 20%);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
 
   &__button {
-    padding: $spacing-sm $spacing-lg;
-    border: none;
-    border-radius: $border-radius-sm;
+    padding: 12px;
     background-color: $primary-color;
     color: $white;
-    font-size: $font-size-md;
+    border: none;
+    border-radius: $border-radius;
+    font-size: $font-size;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: $transition;
 
     &:hover {
-      background-color: $primary-color-dark; 
+      background-color: $primary-hover;
     }
   }
-    &__error-message {
-        color: $error-color; 
-        margin-top: $spacing-md;
-        font-size: $font-size-sm; 
+
+  &__footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+
+    a {
+      color: lighten($primary-color, 15%);
+      text-decoration: none;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
+  }
 
-    &__register-link {
-        margin-top: $spacing-md;
-        text-align: center;
-        font-size: $font-size-sm;
-        text-align: center;
-
-
-    }
-}   
+  &__error-message {
+    text-align: center;
+    color: $error-color;
+    font-size: 0.85rem;
+  }
+}

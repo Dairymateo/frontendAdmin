@@ -1,49 +1,75 @@
-/* src/components/SearchBar.scss */
 $primary-text: #333;
-$secondary-text: #333; 
-$accent-color: #e0e0e0;
+$secondary-text: #555;
+$accent-color: #007bff;
 $focus-color: #007bff;
 $button-background: #dc3545;
 $button-text-color: #fff;
-$search-bar-background: #000; 
-$search-bar-text-color: #fff; 
+$search-bar-background: #222;
+$search-bar-text-color: #eee;
+$sidebar-width: 220px;
+$nav-item-spacing: 0.75rem;
+$link-padding-vertical: 0.6rem;
+$link-padding-horizontal: 1rem;
+$border-radius-small: 4px;
+$transition-duration: 0.2s;
+$hover-opacity: 0.15;
 
 .search-bar {
-    display: flex;
-    flex-direction: column; 
-    align-items: stretch;
-    border-radius: 0;
-    overflow: visible;
-    max-width: none;
-    padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: $search-bar-background;
+  color: $search-bar-text-color;
+  width: $sidebar-width;
+  height: 100vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow-y: auto; /* Añadido para contenido largo */
+}
+
+.search-bar__logo {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.6rem; /* Ligeramente más grande */
+  font-weight: bold;
+  color: $accent-color;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .search-bar__nav-list {
   list-style: none;
   padding: 0;
-  margin-top: 200px;
-
+  margin-top: 1.5rem; /* Ligeramente menos margen superior */
 }
 
 .search-bar__nav-item {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
-  align-items: stretch;
+  margin-bottom: $nav-item-spacing;
+  display: block;
 }
 
 .search-bar__nav-link {
-  color: $search-bar-text-color; 
+  display: block;
+  color: $search-bar-text-color;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  background-color: rgba($secondary-text, 0.1); 
+  font-weight: 300; /* Más ligero por defecto */
+  transition: background-color $transition-duration ease, color $transition-duration ease, padding-left $transition-duration ease; /* Añadida transición para padding */
+  padding: $link-padding-vertical $link-padding-horizontal;
+  border-radius: $border-radius-small;
 
   &:hover {
-    color: $accent-color;
-    background-color: rgba($secondary-text, 0.2);
+    color: lighten($accent-color, 10%); /* Ligeramente más claro al hacer hover */
+    background-color: rgba($accent-color, $hover-opacity);
+    padding-left: $link-padding-horizontal + 0.5rem; /* Pequeño efecto de deslizamiento al hacer hover */
+  }
+
+  &.active {
+    background-color: $accent-color;
+    color: $search-bar-background;
+    font-weight: 500; /* Un poco más grueso para activo */
   }
 }

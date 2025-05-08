@@ -1,0 +1,91 @@
+$primary-color: #4caf50;
+$primary-hover: darken($primary-color, 10%);
+$bg-gradient-start: rgba(38, 38, 92, 0.9);
+$bg-gradient-end: rgba(56, 0, 60, 0.8);
+$border-radius: 12px;
+$white: #fff;
+$text-color: #eaeaea;
+$font-size: 16px;
+$transition: all 0.3s ease;
+$error-color: #f44336;
+
+.pilot-detail-container {
+  background: linear-gradient(to bottom right, $bg-gradient-start, $bg-gradient-end);
+  padding: 40px;
+  border-radius: $border-radius;
+  max-width: 600px;
+  width: 95%;
+  color: $text-color;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.pilot-detail-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: $white;
+}
+
+.pilot-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pilot-info p {
+  font-size: $font-size;
+}
+
+.pilot-info strong {
+  font-weight: bold;
+  color: lighten($primary-color, 10%);
+}
+
+.pilot-info a {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 600;
+  transition: $transition;
+
+  &:hover {
+    text-decoration: underline;
+    color: $primary-hover;
+  }
+}
+
+.back-to-list {
+  display: block;
+  text-align: center;
+  padding: 10px 15px;
+  background-color: transparent;
+  color: $white;
+  border: 2px solid $primary-color;
+  border-radius: $border-radius;
+  font-size: $font-size;
+  font-weight: bold;
+  text-decoration: none;
+  transition: $transition;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+.error-message {
+  text-align: center;
+  color: $error-color;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.loading-message {
+  text-align: center;
+  color: $text-color;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}

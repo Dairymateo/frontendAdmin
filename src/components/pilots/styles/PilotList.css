@@ -1,4 +1,4 @@
-.vehicles-list-container {
+.pilots-list-container {
   background: linear-gradient(to bottom right, rgba(38, 38, 92, 0.9), rgba(56, 0, 60, 0.8));
   padding: 30px;
   border-radius: 12px;
@@ -10,7 +10,7 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-.vehicles-list-container h1 {
+.pilots-list-container h1 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
@@ -40,13 +40,13 @@
   background-color: #357a38;
 }
 
-.vehicles-list {
+.pilots-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.vehicle-item {
+.pilot-item {
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   margin-bottom: 15px;
@@ -56,26 +56,31 @@
   justify-content: space-between;
   align-items: center;
 }
-.vehicle-item:hover {
+.pilot-item:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.vehicle-item a {
+.pilot-item a {
   color: #fff;
   text-decoration: none;
   flex-grow: 1;
   display: block;
 }
-.vehicle-item h2 {
+.pilot-item h2 {
   font-size: 1.2rem;
   margin-top: 0;
   margin-bottom: 5px;
   color: white;
 }
-.vehicle-item .admin-controls {
+.pilot-item p {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+.pilot-item .admin-controls {
   display: flex;
   gap: 10px;
 }
-.vehicle-item .admin-controls button {
+.pilot-item .admin-controls button {
   padding: 8px 15px;
   border: none;
   border-radius: 12px;
@@ -84,24 +89,24 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.vehicle-item .admin-controls button:first-child {
-  background-color: #007bff; /* Blue for edit */
+.pilot-item .admin-controls button:first-child {
+  background-color: #007bff;
   color: #fff;
 }
-.vehicle-item .admin-controls button:first-child:hover {
+.pilot-item .admin-controls button:first-child:hover {
   background-color: #0062cc;
 }
-.vehicle-item .admin-controls button:first-child:active {
+.pilot-item .admin-controls button:first-child:active {
   background-color: #0056b3;
 }
-.vehicle-item .admin-controls button:last-child {
-  background-color: #f44336; /* Red for delete */
+.pilot-item .admin-controls button:last-child {
+  background-color: #f44336;
   color: #fff;
 }
-.vehicle-item .admin-controls button:last-child:hover {
+.pilot-item .admin-controls button:last-child:hover {
   background-color: #ea1c0d;
 }
-.vehicle-item .admin-controls button:last-child:active {
+.pilot-item .admin-controls button:last-child:active {
   background-color: #d2190b;
 }
 
@@ -124,4 +129,4 @@
   font-size: 0.9rem;
   margin-top: 20px;
   text-align: center;
-}/*# sourceMappingURL=VehiclesList.css.map */
+}/*# sourceMappingURL=PilotList.css.map */

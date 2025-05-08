@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-//import './styles/PilotsList.css'; 
 import * as PilotService from "../../services/pilots"; 
 import PilotForm from "./PilotForm"; 
+//import './styles/PilotsList.css';
 
 function PilotsList() {
     const [pilots, setPilots] = useState([]);
