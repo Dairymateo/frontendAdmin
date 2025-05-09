@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/auth';
+const API_URL = 'https://deberadmin.onrender.com/auth';
 
 
 export const signup = async (userData) => {
