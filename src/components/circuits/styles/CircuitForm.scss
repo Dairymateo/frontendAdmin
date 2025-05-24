@@ -1,0 +1,273 @@
+/* src/components/circuits/styles/CircuitForm.scss */
+
+// Variables SCSS (iguales a las anteriores)
+$f1-red: #dc143c;
+$f1-red-hover: #b00f2e;
+$f1-black: #1a1a1a;
+$f1-dark-gray: #2b2b2b;
+$f1-light-gray: #4a4a4a;
+$f1-text-light: #f0f0f0;
+$f1-text-dark: #333;
+$f1-white: #fff;
+$f1-accent-blue: #007bff;
+$f1-accent-blue-hover: darken($f1-accent-blue, 10%);
+$bg-page-light: #f5f5f5;
+$transition-speed: 0.3s ease;
+$border-radius-base: 8px;
+$border-radius-small: 4px;
+$shadow-light: 0 2px 10px rgba(0, 0, 0, 0.08);
+$shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.15);
+$shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.25);
+$padding-form: 30px;
+$gap-form-group: 20px;
+$font-family-primary: 'Roboto', sans-serif;
+$font-family-secondary: 'Formula1', 'Arial', sans-serif;
+
+
+// Estilos para el modal (AHORA APLICADOS EN EL COMPONENTE PADRE)
+.circuit-form-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.circuit-form-container {
+    background-color: $f1-white;
+    border-radius: $border-radius-base;
+    box-shadow: $shadow-heavy;
+    padding: $padding-form;
+    width: 90%;
+    max-width: 800px;
+    box-sizing: border-box;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+// Estilos para el formulario interno (APLICADOS DIRECTAMENTE AL FORMULARIO EN CircuitForm.jsx)
+.circuit-form-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $f1-black;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: $f1-red;
+    }
+}
+
+.circuit-form { // Clase aplicada al <form> directamente
+    display: flex;
+    flex-direction: column;
+
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $gap-form-group;
+        margin-bottom: 15px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .form-group {
+        flex: 1;
+        min-width: 280px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: $f1-text-dark;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid lighten($f1-light-gray, 30%);
+            border-radius: $border-radius-small;
+            font-size: 1rem;
+            color: $f1-text-dark;
+            background-color: $bg-page-light;
+            transition: border-color $transition-speed, box-shadow $transition-speed;
+            box-sizing: border-box;
+
+            &:focus {
+                outline: none;
+                border-color: $f1-accent-blue;
+                box-shadow: 0 0 0 3px rgba($f1-accent-blue, 0.2);
+            }
+
+            &::placeholder {
+                color: lighten($f1-text-dark, 20%); // Ajustado de $f1-text-gray
+            }
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%234a4a4a" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid lighten($f1-light-gray, 40%);
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: $border-radius-small;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: $transition-speed;
+            box-shadow: $shadow-light;
+
+            &:hover {
+                box-shadow: $shadow-medium;
+                transform: translateY(-2px);
+            }
+        }
+
+        .submit-btn {
+            background-color: $f1-red;
+            color: $f1-white;
+
+            &:hover {
+                background-color: $f1-red-hover;
+            }
+        }
+
+        .cancel-btn {
+            background-color: $f1-light-gray;
+            color: $f1-white;
+
+            &:hover {
+                background-color: darken($f1-light-gray, 10%);
+            }
+        }
+    }
+}
+
+/* Animations (iguales) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments (iguales) */
+@media (max-width: 768px) {
+    .circuit-form-container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .circuit-form-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .circuit-form {
+        .form-row {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group {
+            min-width: unset;
+            width: 100%;
+        }
+
+        .form-actions {
+            flex-direction: column;
+            gap: 10px;
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .circuit-form-container {
+        padding: 15px;
+    }
+
+    .circuit-form-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .circuit-form {
+        .form-group {
+            label {
+                font-size: 0.9rem;
+            }
+            input[type="text"],
+            input[type="number"],
+            select {
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .form-actions {
+            margin-top: 20px;
+            button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

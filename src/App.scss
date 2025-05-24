@@ -1,30 +1,80 @@
-$primary-text: #333;
-$secondary-text: #333;
-$accent-color: #e0e0e0;
-$focus-color: #007bff;
-$button-background: #dc3545;
-$button-text-color: #fff;
-$background-color: #f4f4f4;
-$nav-background: #333;
-$search-bar-background: #2b2b2b;
-$search-bar-text-color: #fff;
-$sidebar-width: 220px;
+/* App.css */
 
-.app-container { /* Renamed 'app' to avoid potential global style conflicts */
-  display: flex;
-  flex-direction: row;
-  min-height: 100vh;
-  align-items: stretch;
+$f1-red: #dc143c;
+$f1-red-hover: #b00f2e;
+$f1-black: #1a1a1a;
+$f1-dark-gray: #2b2b2b;
+$f1-light-gray: #4a4a4a;
+$f1-text-light: #f0f0f0;
+$f1-text-dark: #333;
+$f1-white: #fff;
+$f1-accent-blue: #007bff;
+$f1-accent-blue-hover: darken($f1-accent-blue, 10%);
+$bg-page-light: #f5f5f5;
+$sidebar-width: 200px;
+$transition-speed: 0.3s ease;
+$border-radius-base: 8px;
+$border-radius-small: 4px;
+$shadow-light: 0 2px 10px rgba(0, 0, 0, 0.08);
+$shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.15);
+$shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.25);
+$padding-page: 40px;
+$gap-grid: 30px;
+$font-family-primary: 'Roboto', sans-serif;
+$font-family-secondary: 'Formula1', 'Arial', sans-serif;
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: $font-family-primary;
+    background-color: $bg-page-light;
+    overflow: hidden;
 }
 
-.app-container__content { /* Renamed 'app__content' */
-  flex-grow: 1;
-  padding: 1rem;
-  box-sizing: border-box;
+.app {
+    display: flex;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: $bg-page-light;
 }
 
-.app-container__sidebar { /* Renamed 'app__sidebar' */
-  width: $sidebar-width;
-  background-color: $search-bar-background;
-  color: $search-bar-text-color;
+.app__sidebar-placeholder {
+    width: $sidebar-width;
+    flex-shrink: 0;
+}
+
+.app__content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0;
+    box-sizing: border-box;
+    transition: margin-left $transition-speed;
+    height: 100vh; // Asegura que app__content ocupe la altura de la ventana para que el scroll funcione
+
+    &.app__content--with-sidebar {
+        margin-left: $sidebar-width;
+    }
+
+    &.app__content--full-width {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .app__sidebar-placeholder {
+        width: 100%;
+        height: auto;
+    }
+
+    .app__content {
+        margin-left: 0 !important;
+        width: 100%;
+        padding-top: 60px;
+        height: auto; // En móvil, la altura puede ser automática o ajustarse
+    }
 }

@@ -9,6 +9,8 @@ import SearchBar from './components/app/SearchBar.jsx';
 import PilotsList from './components/pilots/PilotsList';
 import PilotDetail from './components/pilots/PilotDetail';
 import ProtectedRoute from './components/auth/ProtectedRoute';
+import CircuitsList from './components/circuits/CircuitsList';
+import CircuitDetails from './components/circuits/CircuitDetails';
 
 function App() {
     const location = useLocation();
@@ -17,21 +19,24 @@ function App() {
     return (
         <div className="app">
             {!isAuthPage && (
-                <div className="app__sidebar">
+                <>
                     <SearchBar />
-                </div>
+                    <div className="app__sidebar-placeholder"></div>
+                </>
             )}
-            <div className="app__content" style={isAuthPage ? { marginLeft: 0 } : {}}>
+            <div className={`app__content ${isAuthPage ? 'app__content--full-width' : 'app__content--with-sidebar'}`}>
                 <Routes>
                     <Route path="/" element={<Navigate to="/login" />} />
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/login" element={<Login />} />
 
-                    {/* Rutas protegidas */}
                     <Route path="/vehicles" element={<ProtectedRoute><VehiclesList /></ProtectedRoute>} />
                     <Route path="/vehicles/:id" element={<ProtectedRoute><VehicleDetails /></ProtectedRoute>} />
                     <Route path="/pilots" element={<ProtectedRoute><PilotsList /></ProtectedRoute>} />
                     <Route path="/pilots/:id" element={<ProtectedRoute><PilotDetail /></ProtectedRoute>} />
+                    <Route path="/circuits" element={<ProtectedRoute><CircuitsList /></ProtectedRoute>} />
+                    <Route path="/circuits/:id" element={<ProtectedRoute><CircuitDetails /></ProtectedRoute>} />
+
                 </Routes>
             </div>
         </div>
