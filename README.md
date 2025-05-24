@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# F1 App - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es la aplicación frontend para la gestión de datos de la Fórmula 1, desarrollada con React.
 
-## Available Scripts
+## Tecnologías Utilizadas
 
-In the project directory, you can run:
+- React  
+- React Router DOM  
+- axios  
+- jwt-decode  
 
-### `npm start`
+## Dependencias
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```json
+{
+  "@testing-library/dom": "^10.4.0",
+  "@testing-library/jest-dom": "^6.6.3",
+  "@testing-library/react": "^16.3.0",
+  "@testing-library/user-event": "^13.5.0",
+  "axios": "^1.9.0",
+  "cors": "^2.8.5",
+  "jwt-decode": "^4.0.0",
+  "react": "^19.1.0",
+  "react-dom": "^19.1.0",
+  "react-router-dom": "^7.5.3",
+  "react-scripts": "5.0.1",
+  "web-vitals": "^2.1.4"
+}
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+### Clonar el repositorio
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone <URL_DEL_REPOSITORIO_FRONTEND>
+cd frontend
+```
 
-### `npm run build`
+### Instalar dependencias
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Ejecución
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Iniciar la aplicación
 
-### `npm run eject`
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Esto ejecutará la aplicación en modo de desarrollo. Abre [http://localhost:3000](http://localhost:3000) para verla en tu navegador.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Despliegue
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+La aplicación está desplegada en Render.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Estructura del Proyecto
 
-## Learn More
+```
+frontend/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── app/
+│   │   ├── auth/
+│   │   ├── pilots/
+│   │   ├── vehicles/
+│   ├── constants/
+│   ├── pages/
+│   ├── services/
+│   ├── App.js
+│   ├── index.js
+├── package.json
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Descripción
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Esta aplicación es un frontend de React para un sistema de gestión de datos de Fórmula 1. Permite a los usuarios interactuar con información sobre pilotos, vehículos, y posiblemente otra información relacionada con la F1. La aplicación utiliza React Router para la navegación, axios para hacer peticiones al backend, y jwt-decode para decodificar tokens web JSON.
