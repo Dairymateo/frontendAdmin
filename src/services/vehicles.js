@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://deberadmin.onrender.com/vehicles";
+const API_URL = "http://localhost:3000/vehicles";
 
 
 export const getAllVehicles = async () => {

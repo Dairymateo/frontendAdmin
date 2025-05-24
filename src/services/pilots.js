@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://deberadmin.onrender.com/pilots'
+const API_URL = 'http://localhost:3000/pilots'
 
 export const getAllPilots = async () => {
     try {

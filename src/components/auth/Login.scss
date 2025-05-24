@@ -1,136 +1,233 @@
 // Variables
-$primary-color: #4caf50;
-$primary-hover: darken($primary-color, 10%);
-$bg-gradient-start: rgba(38, 38, 92, 0.9);
-$bg-gradient-end: rgba(56, 0, 60, 0.8);
-$input-bg: rgba(255, 255, 255, 0.1);
-$border-radius: 12px;
+$f1-red: #dc143c;
+$f1-red-hover: darken($f1-red, 10%);
+$bg-light: #f5f5f5;
+$input-border: #ddd;
+$text-dark: #333;
 $white: #fff;
-$text-color: #eaeaea;
-$font-size: 16px;
+$border-radius: 4px;
+$font-size: 14px;
 $transition: all 0.3s ease;
 $error-color: #f44336;
 
+// Reset body styles for full page layout
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: 'Arial', sans-serif;
+  background-color: $bg-light;
 }
 
 .login-page {
-  background: linear-gradient(to bottom right, $bg-gradient-start, $bg-gradient-end);
-  padding: 60px 60px 60px 40px;
-  border-radius: $border-radius;
-  max-width: 400px;
+  display: flex;
+  min-height: 100vh;
   width: 100%;
-  color: $text-color;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  
+  // Left side - Login Form
+  &__form-container {
+    flex: 1;
+    background-color: $bg-light;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    
+    // F1 Logo
+    &::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      width: 60px;
+      height: 20px;
+      background: linear-gradient(45deg, $f1-red 0%, $f1-red 70%, transparent 70%);
+      clip-path: polygon(0 0, 80% 0, 100% 100%, 20% 100%);
+    }
+  }
+  
+  // Right side - F1 Image
+  &__image-container {
+    flex: 1;
+    background: linear-gradient(135deg, $f1-red 0%, darken($f1-red, 20%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    
+    // F1 Image
+    .f1-image {
+      width: 100%;
+      height: 100%;
+      max-width: 500px;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 600px;
+    }
+  }
 
   &__title {
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 24px;
-    color: $white;
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    color: $text-dark;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 80px;
+      height: 2px;
+      background-color: $text-dark;
+    }
   }
 
   &__form {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
+    max-width: 300px;
   }
 
   &__input-group {
     position: relative;
 
     input {
-      width: 85%;
-      padding: 14px 44px 12px 16px;
-      border: none;
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid $input-border;
       border-radius: $border-radius;
-      background-color: $input-bg;
-      color: $white;
+      background-color: $white;
+      color: $text-dark;
       font-size: $font-size;
       outline: none;
       transition: $transition;
+      box-sizing: border-box;
 
       &:focus {
-        background-color: rgba(255, 255, 255, 0.15);
+        border-color: $f1-red;
+        box-shadow: 0 0 0 2px rgba($f1-red, 0.1);
       }
-    }
-
-    i {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: $white;
-    }
-  }
-
-  &__options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.875rem;
-
-    label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    a {
-      color: lighten($primary-color, 20%);
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
+      
+      &::placeholder {
+        color: #999;
       }
     }
   }
 
   &__button {
-    padding: 12px;
-    background-color: $primary-color;
+    padding: 12px 24px;
+    background-color: $f1-red;
     color: $white;
     border: none;
     border-radius: $border-radius;
     font-size: $font-size;
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
     transition: $transition;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 
     &:hover {
-      background-color: $primary-hover;
+      background-color: $f1-red-hover;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba($f1-red, 0.3);
+    }
+  }
+  
+  // Register button
+  &__register-button {
+    padding: 10px 24px;
+    background-color: transparent;
+    color: $f1-red;
+    border: 1px solid $f1-red;
+    border-radius: $border-radius;
+    font-size: $font-size;
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      background-color: $f1-red;
+      color: $white;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba($f1-red, 0.3);
     }
   }
 
-  &__footer {
+  &__text {
     margin-top: 20px;
     text-align: center;
     font-size: 0.9rem;
+    color: $text-dark;
+  }
 
-    a {
-      color: lighten($primary-color, 15%);
-      text-decoration: none;
-      font-weight: 600;
+  &__link {
+    color: $f1-red;
+    text-decoration: none;
+    font-weight: 500;
 
-      &:hover {
-        text-decoration: underline;
-      }
+    &:hover {
+      text-decoration: underline;
     }
   }
 
-  &__error-message {
+  .error-message {
     text-align: center;
     color: $error-color;
     font-size: 0.85rem;
+    margin-top: 10px;
+    padding: 8px;
+    background-color: rgba($error-color, 0.1);
+    border-radius: $border-radius;
+  }
+}
+
+// Responsive design
+@media (max-width: 968px) {
+  .login-page {
+    flex-direction: column;
+    
+    &__form-container {
+      padding: 40px;
+      order: 2;
+    }
+    
+    &__image-container {
+      min-height: 300px;
+      order: 1;
+      
+      .f1-image {
+        min-height: 250px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    &__form-container {
+      padding: 20px;
+    }
+    
+    &__title {
+      font-size: 24px;
+    }
+    
+    &__form {
+      max-width: 100%;
+    }
   }
 }

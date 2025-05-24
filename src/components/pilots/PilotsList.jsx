@@ -15,7 +15,7 @@ function PilotsList() {
 
     useEffect(() => {
         fetchPilots();
-        checkAdminStatus(); // Reutiliza la función de VehiclesList
+        checkAdminStatus(); 
     }, []);
 
     const checkAdminStatus = () => {
