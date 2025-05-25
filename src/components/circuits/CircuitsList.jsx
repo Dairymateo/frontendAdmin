@@ -174,11 +174,11 @@ function CircuitsList() {
                                     <div className="circuit-info">
                                         <h3 className="circuit-name">{circuit.name}</h3>
                                         <div className="circuit-details">
-                                            <span className="circuit-country">{circuit.country}</span>
+                                            <span className="circuit-country">{circuit.ubication}</span>
                                             <span className="circuit-length">{circuit.longitudRectaMasLargaKm} km</span>
                                         </div>
                                         <div className="circuit-extra">
-                                            <span className="circuit-turns">{circuit.turns} curvas</span> {/* Texto en español */}
+                                            <span className="circuit-turns">{circuit.cantidadCurvas} curvas</span> 
                                         </div>
                                     </div>
                                 </Link>
