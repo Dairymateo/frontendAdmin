@@ -1,358 +1,490 @@
 /* src/components/circuits/styles/CircuitList.scss */
 
+$primary-color: #007bff;
+$primary-hover-color: #0056b3;
 $f1-red: #dc143c;
 $f1-red-hover: #b00f2e;
-$f1-black: #1a1a1a;
-$f1-dark-gray: #2b2b2b;
-$f1-text-gray: #4a4a4a;
-$f1-light-gray: #4a4a4a;
-$f1-text-light: #f0f0f0;
-$f1-text-dark: #333;
-$f1-white: #fff;
-$f1-accent-blue: #007bff;
-$f1-accent-blue-hover: darken($f1-accent-blue, 10%);
-$bg-page-light: #f5f5f5;
+$background-light: #f0f2f5;
+$background-card: #ffffff;
+$border-color: #e0e0e0;
+$text-color-dark: #333;
+$text-color-medium: #555;
+$error-color: #dc3545;
+$success-color: #28a745;
+$shadow-light: rgba(0, 0, 0, 0.08);
+$shadow-medium: rgba(0, 0, 0, 0.15);
+$shadow-heavy: rgba(0, 0, 0, 0.25);
+
 $sidebar-width: 200px;
 $transition-speed: 0.3s ease;
 $border-radius-base: 8px;
 $border-radius-small: 4px;
-$shadow-light: 0 2px 10px rgba(0, 0, 0, 0.08);
-$shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.15);
-$shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.25);
-$padding-page: 30px; 
+$padding-page: 30px;
 $gap-grid: 30px;
 $font-family-primary: 'Roboto', sans-serif;
 $font-family-secondary: 'Formula1', 'Arial', sans-serif;
-$border-color: #ddd;
+
+@mixin button-style($bg-color: $primary-color, $text-color: white) {
+  padding: 10px 15px;
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, opacity 0.2s ease, transform 0.1s ease;
+
+  &:hover:not(:disabled) {
+    background-color: darken($bg-color, 10%);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
 
 .circuits-page {
-    padding: $padding-page;
-    background-color: $bg-page-light;
-    min-height: 100%;
-    font-family: $font-family-primary;
-    box-sizing: border-box;
-    width: 100%;
+  padding: $padding-page;
+  background-color: $background-light;
+  min-height: 100vh;
+  font-family: $font-family-primary;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .circuits-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: $padding-page;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $padding-page;
+  position: relative;
+  background-color: $background-card;
+  padding: 20px $padding-page;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-light;
+
+  .circuits-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: $text-color-dark;
+    margin: 0;
     position: relative;
+    padding-bottom: 10px;
 
-    .circuits-title {
-        font-size: 2.2rem;
-        font-weight: 300;
-        color: $f1-text-dark;
-        margin: 0;
-        position: relative;
-        padding-bottom: 10px;
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background-color: $f1-red;
-        }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100px;
+      height: 4px;
+      background-color: $f1-red;
     }
+  }
 
-    .add-circuit-btn {
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        background-color: $f1-red;
-        color: $f1-white;
-        border: none;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: $transition-speed;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: $shadow-light;
+  .add-circuit-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: $primary-color;
+    color: $background-card;
+    border: none;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: $transition-speed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow-medium;
 
-        &:hover {
-            background-color: $f1-red-hover;
-            transform: scale(1.08);
-            box-shadow: $shadow-medium;
-        }
+    &:hover {
+      background-color: $primary-hover-color;
+      transform: scale(1.08);
+      box-shadow: $shadow-heavy;
     }
+  }
 }
 
 .success-message, .error-message {
-    padding: 15px 20px;
-    border-radius: $border-radius-base;
-    margin-bottom: 25px;
-    font-size: 1.1em;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: $shadow-light;
+  padding: 15px 20px;
+  border-radius: $border-radius-base;
+  margin-bottom: 25px;
+  font-size: 1.1em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: $shadow-light;
+  border: 1px solid;
+  text-align: center;
+  justify-content: center;
 }
 
 .success-message {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+  background-color: lighten($success-color, 35%);
+  color: darken($success-color, 25%);
+  border-color: lighten($success-color, 20%);
 }
 
 .error-message {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+  background-color: lighten($error-color, 30%);
+  color: darken($error-color, 25%);
+  border-color: lighten($error-color, 15%);
 }
 
+// Fondo mejorado para el modal del formulario
 .add-circuit-modal {
-    position: fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(0, 123, 255, 0.2) 0%, 
+    rgba(220, 20, 60, 0.15) 25%,
+    rgba(40, 167, 69, 0.1) 50%,
+    rgba(108, 117, 125, 0.2) 75%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeInBackdrop 0.4s ease-out;
+  
+  // Efecto de partículas animadas
+  &::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 50px 50px, 60px 60px, 40px 40px;
+    animation: floatingDots 20s linear infinite;
+    pointer-events: none;
+  }
+  
+  // Ondas animadas
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(ellipse at 10% 30%, rgba(0, 123, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 70%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 10%, rgba(40, 167, 69, 0.08) 0%, transparent 50%);
+    animation: waveMotion 15s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes floatingDots {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(240deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+@keyframes waveMotion {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% {
+    transform: scale(1.1) rotate(120deg);
+    opacity: 0.5;
+  }
+  66% {
+    transform: scale(0.9) rotate(240deg);
+    opacity: 0.2;
+  }
 }
 
 .circuits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: $gap-grid;
-    margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $gap-grid;
+  margin-top: 20px;
 }
 
 .circuit-card {
-    background-color: $f1-white;
-    border-radius: $border-radius-base;
-    box-shadow: $shadow-light;
-    transition: $transition-speed;
-    overflow: hidden;
-    position: relative;
+  background-color: $background-card;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-light;
+  transition: $transition-speed;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 1px solid $border-color;
+
+  &:hover {
+    box-shadow: $shadow-medium;
+    transform: translateY(-8px);
+  }
+
+  .circuit-card-link {
+    text-decoration: none;
+    color: inherit;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
+    height: 100%;
+  }
 
-    &:hover {
+  .circuit-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    border-bottom: 1px solid $border-color;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: $transition-speed;
+    }
+
+    &:hover img {
+      transform: scale(1.07);
+    }
+  }
+
+  .circuit-info {
+    padding: 20px;
+    flex-grow: 1;
+
+    .circuit-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $text-color-dark;
+      margin: 0 0 15px 0;
+      line-height: 1.3;
+      border-bottom: 1px solid lighten($border-color, 5%);
+      padding-bottom: 10px;
+    }
+
+    .circuit-details, .circuit-extra {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: $text-color-medium;
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .circuit-country {
+        font-weight: 600;
+        color: $text-color-dark;
+      }
+
+      .circuit-length {
+        font-weight: 700;
+        color: $primary-color;
+      }
+
+      .circuit-turns {
+        font-style: normal;
+        font-weight: 500;
+      }
+
+      .circuit-year {
+        font-weight: 500;
+        color: $text-color-medium;
+      }
+    }
+  }
+
+  .circuit-actions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity $transition-speed;
+    z-index: 2;
+
+    button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: $border-radius-small;
+      font-size: 0.9em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: $transition-speed;
+      box-shadow: $shadow-light;
+
+      &:hover {
         box-shadow: $shadow-medium;
-        transform: translateY(-6px);
+        transform: translateY(-2px);
+      }
     }
 
-    .circuit-card-link {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
+    .edit-btn {
+      background-color: $primary-color;
+      color: $background-card;
+
+      &:hover {
+        background-color: $primary-hover-color;
+      }
     }
 
-    .circuit-image {
-        width: 100%;
-        height: 220px;
-        overflow: hidden;
-        position: relative;
-        flex-shrink: 0;
+    .delete-btn {
+      background-color: $f1-red;
+      color: $background-card;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: $transition-speed;
-        }
-
-        &:hover img {
-            transform: scale(1.07);
-        }
+      &:hover {
+        background-color: $f1-red-hover;
+      }
     }
+  }
 
-    .circuit-info {
-        padding: 20px;
-        flex-grow: 1;
-
-        .circuit-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: $f1-text-dark;
-            margin: 0 0 15px 0;
-            line-height: 1.3;
-        }
-
-        .circuit-details, .circuit-extra {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-            color: $f1-text-gray;
-
-            span {
-                display: flex;
-                align-items: center;
-                gap: 5px;
-            }
-
-            .circuit-country {
-                font-weight: 600;
-                color: $f1-text-dark;
-            }
-
-            .circuit-length {
-                font-weight: 700;
-                color: $f1-red;
-            }
-
-            .circuit-turns {
-                font-style: italic;
-            }
-
-            .circuit-year {
-                font-weight: 500;
-            }
-        }
-    }
-
-    .circuit-actions {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        display: flex;
-        gap: 10px;
-        opacity: 0;
-        transition: opacity $transition-speed;
-        z-index: 2;
-
-        button {
-            padding: 8px 15px;
-            border: none;
-            border-radius: $border-radius-small;
-            font-size: 0.9em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: $transition-speed;
-            box-shadow: $shadow-light;
-
-            &:hover {
-                box-shadow: $shadow-medium;
-                transform: translateY(-2px);
-            }
-        }
-
-        .edit-btn {
-            background-color: $f1-accent-blue;
-            color: $f1-white;
-
-            &:hover {
-                background-color: $f1-accent-blue-hover;
-            }
-        }
-
-        .delete-btn {
-            background-color: $f1-red;
-            color: $f1-white;
-
-            &:hover {
-                background-color: $f1-red-hover;
-            }
-        }
-    }
-
-    &:hover .circuit-actions {
-        opacity: 1;
-    }
+  &:hover .circuit-actions {
+    opacity: 1;
+  }
 }
 
 .no-circuits {
-    text-align: center;
-    padding: 80px 20px;
-    color: $f1-text-gray;
-    font-size: 1.2rem;
-    background-color: $f1-white;
-    border-radius: $border-radius-base;
-    box-shadow: $shadow-light;
-    margin-top: $padding-page;
+  text-align: center;
+  padding: 80px 20px;
+  color: $text-color-medium;
+  font-size: 1.2rem;
+  background-color: $background-card;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-light;
+  margin-top: $padding-page;
 
-    p {
-        margin: 0;
-    }
+  p {
+    margin: 0;
+  }
 }
 
 @media (max-width: 1024px) {
-    .circuits-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 25px;
-    }
+  .circuits-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
 }
 
 @media (max-width: 768px) {
-    .circuits-page {
-        padding: 20px;
+  .circuits-page {
+    padding: 20px;
+  }
+
+  .circuits-header {
+    margin-bottom: 30px;
+    padding: 15px 20px;
+
+    .circuits-title {
+      font-size: 1.8rem;
     }
 
-    .circuits-header {
-        margin-bottom: 30px;
+    .add-circuit-btn {
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+    }
+  }
 
-        .circuits-title {
-            font-size: 1.8rem;
-        }
+  .circuits-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
 
-        .add-circuit-btn {
-            width: 45px;
-            height: 45px;
-            font-size: 20px;
-        }
+  .circuit-card {
+    .circuit-image {
+      height: 180px;
     }
 
-    .circuits-grid {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 20px;
+    .circuit-info {
+      padding: 15px;
+
+      .circuit-name {
+        font-size: 1.2rem;
+      }
     }
 
-    .circuit-card {
-        .circuit-image {
-            height: 180px;
-        }
-
-        .circuit-info {
-            padding: 15px;
-
-            .circuit-name {
-                font-size: 1.2rem;
-            }
-        }
-
-        .circuit-actions {
-            position: relative;
-            top: auto;
-            right: auto;
-            opacity: 1;
-            padding: 10px 15px;
-            justify-content: center;
-            background-color: $f1-white;
-            border-top: 1px solid $border-color;
-            margin-top: auto;
-        }
+    .circuit-actions {
+      position: relative;
+      top: auto;
+      right: auto;
+      opacity: 1;
+      padding: 10px 15px;
+      justify-content: center;
+      background-color: $background-card;
+      border-top: 1px solid $border-color;
+      margin-top: auto;
+      box-shadow: none;
+      transform: none;
     }
+  }
+
+  // Reducir efectos en móviles para mejor rendimiento
+  .add-circuit-modal {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
 }
 
 @media (max-width: 480px) {
-    .circuits-page {
-        padding: 15px;
-    }
+  .circuits-page {
+    padding: 15px;
+  }
 
-    .circuits-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+  .circuits-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 
-    .circuit-card {
-        .circuit-image {
-            height: 140px;
-        }
+  .circuit-card {
+    .circuit-image {
+      height: 140px;
     }
+  }
 }

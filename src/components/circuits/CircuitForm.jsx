@@ -1,6 +1,6 @@
 // src/components/circuits/CircuitForm.jsx
 import React, { useState, useEffect } from 'react';
-import './styles/CircuitForm.css'; // Asegúrate de que el SCSS está importado
+import './styles/CircuitForm.css';
 
 const circuitTypes = [
     'Street Circuit',
@@ -9,7 +9,6 @@ const circuitTypes = [
     'Hybrid Circuit'
 ];
 
-// Renombramos 'circuit' a 'initialValues' para seguir el patrón de PilotForm
 function CircuitForm({ initialValues, onSubmit, onCancel }) {
     const [formData, setFormData] = useState({
         name: '',
@@ -20,17 +19,13 @@ function CircuitForm({ initialValues, onSubmit, onCancel }) {
         porcentajeAccidentesHistorico: '',
         longitudRectaMasLargaKm: '',
         cambioElevacionMetros: '',
-        // dificultadCircuito se mantiene fuera, ya que es calculado por el backend
     });
 
-    // Usamos initialValues para inicializar el formulario, tal como en PilotForm
     useEffect(() => {
         if (initialValues) {
-            // Destructuramos para excluir campos de Mongo y dificultadCircuito si existen
             const { _id, __v, dificultadCircuito, ...dataToLoad } = initialValues;
             setFormData(dataToLoad);
         } else {
-            // Si no hay initialValues, reiniciamos el formulario para un nuevo circuito
             setFormData({
                 name: '',
                 ubication: '',
@@ -42,7 +37,7 @@ function CircuitForm({ initialValues, onSubmit, onCancel }) {
                 cambioElevacionMetros: '',
             });
         }
-    }, [initialValues]); // La dependencia es solo initialValues
+    }, [initialValues]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -51,7 +46,6 @@ function CircuitForm({ initialValues, onSubmit, onCancel }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Convertir valores numéricos a tipo Number si existen
         const formDataToSend = {
             ...formData,
             temperature: formData.temperature ? Number(formData.temperature) : null,
@@ -64,12 +58,9 @@ function CircuitForm({ initialValues, onSubmit, onCancel }) {
         onSubmit(formDataToSend);
     };
 
-    // Determinamos si estamos editando basándonos en si initialValues existe
-    const isEditing = !!initialValues;
+    const isEditing = !!initialValues && !!initialValues._id;
 
     return (
-        // Quitamos el div 'circuit-form-modal' y 'circuit-form-container' de aquí.
-        // Asumimos que el componente padre envolverá PilotForm y CircuitForm en un modal similar.
         <form onSubmit={handleSubmit} className="circuit-form">
             <h3 className="circuit-form-title">
                 {isEditing ? 'Edit Circuit' : 'Add New Circuit'}
@@ -149,7 +140,7 @@ function CircuitForm({ initialValues, onSubmit, onCancel }) {
                         onChange={handleChange}
                         required
                         min="1"
-                        max="50"
+                        max="500"
                         placeholder="19"
                     />
                 </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as VehicleService from "../../services/vehicles";
-import { f1Teams } from '../../constants/f1Teams'; 
-import './styles/PilotForm.css'; 
+import { f1Teams } from '../../constants/f1Teams';
+import './styles/PilotForm.css';
 
 function PilotForm({ initialValues, onSubmit, onCancel }) {
     const [formData, setFormData] = useState({
@@ -18,7 +18,7 @@ function PilotForm({ initialValues, onSubmit, onCancel }) {
 
     useEffect(() => {
         if (initialValues) {
-            const { _id, __v, ...initialDataWithoutMongo } = initialValues;
+            const { _id, __v, rendimientoPiloto, generalPerfomance, ...initialDataWithoutMongo } = initialValues;
             setFormData(initialDataWithoutMongo);
         } else {
             setFormData({
@@ -62,8 +62,8 @@ function PilotForm({ initialValues, onSubmit, onCancel }) {
         e.preventDefault();
         const formDataToSend = {
             ...formData,
-            promedioPosicionFinalGeneral: formData.promedioPosicionFinalGeneral ? Number(formData.promedioPosicionFinalGeneral) : null,
-            porcentajeAbandonoGeneral: formData.porcentajeAbandonoGeneral ? Number(formData.porcentajeAbandonoGeneral) : null,
+            promedioPosicionFinalGeneral: formData.promedioPosicionFinalGeneral !== '' ? Number(formData.promedioPosicionFinalGeneral) : null,
+            porcentajeAbandonoGeneral: formData.porcentajeAbandonoGeneral !== '' ? Number(formData.porcentajeAbandonoGeneral) : null,
         };
         onSubmit(formDataToSend);
     };
@@ -97,7 +97,7 @@ function PilotForm({ initialValues, onSubmit, onCancel }) {
             </div>
             <div className="form-group">
                 <label htmlFor="promedioPosicionFinalGeneral">Promedio Posición Final:</label>
-                <input type="number" id="promedioPosicionFinalGeneral" name="promedioPosicionFinalGeneral" value={formData.promedioPosicionFinalGeneral} onChange={handleChange} min="1" max="20" />
+                <input type="float" id="promedioPosicionFinalGeneral" name="promedioPosicionFinalGeneral" value={formData.promedioPosicionFinalGeneral} onChange={handleChange} min="1.5" max="20" />
             </div>
             <div className="form-group">
                 <label htmlFor="porcentajeAbandonoGeneral">Porcentaje Abandono:</label>

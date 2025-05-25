@@ -1,8 +1,8 @@
 /* src/components/circuits/styles/CircuitList.scss */
 .circuits-page {
   padding: 30px;
-  background-color: #f5f5f5;
-  min-height: 100%;
+  background-color: #f0f2f5;
+  min-height: 100vh;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
   width: 100%;
@@ -14,10 +14,14 @@
   align-items: center;
   margin-bottom: 30px;
   position: relative;
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.08);
 }
 .circuits-header .circuits-title {
   font-size: 2.2rem;
-  font-weight: 300;
+  font-weight: 700;
   color: #333;
   margin: 0;
   position: relative;
@@ -29,15 +33,15 @@
   bottom: 0;
   left: 0;
   width: 100px;
-  height: 3px;
+  height: 4px;
   background-color: #dc143c;
 }
 .circuits-header .add-circuit-btn {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  background-color: #dc143c;
-  color: #fff;
+  background-color: #007bff;
+  color: #ffffff;
   border: none;
   font-size: 28px;
   font-weight: bold;
@@ -46,12 +50,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.15);
 }
 .circuits-header .add-circuit-btn:hover {
-  background-color: #b00f2e;
+  background-color: #0056b3;
   transform: scale(1.08);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.25);
 }
 
 .success-message, .error-message {
@@ -63,19 +67,22 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.08);
+  border: 1px solid;
+  text-align: center;
+  justify-content: center;
 }
 
 .success-message {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+  background-color: #9be7ac;
+  color: #0f401b;
+  border-color: #5dd879;
 }
 
 .error-message {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+  background-color: #f3b7bd;
+  color: #7c151f;
+  border-color: #e77681;
 }
 
 .add-circuit-modal {
@@ -84,13 +91,79 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2) 0%, rgba(220, 20, 60, 0.15) 25%, rgba(40, 167, 69, 0.1) 50%, rgba(108, 117, 125, 0.2) 75%, rgba(0, 0, 0, 0.4) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  animation: fadeInBackdrop 0.4s ease-out;
+}
+.add-circuit-modal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px), radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px), radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px, 60px 60px, 40px 40px;
+  animation: floatingDots 20s linear infinite;
+  pointer-events: none;
+}
+.add-circuit-modal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 10% 30%, rgba(0, 123, 255, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 90% 70%, rgba(220, 20, 60, 0.1) 0%, transparent 50%), radial-gradient(ellipse at 50% 10%, rgba(40, 167, 69, 0.08) 0%, transparent 50%);
+  animation: waveMotion 15s ease-in-out infinite;
+  pointer-events: none;
 }
 
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+  }
+}
+@keyframes floatingDots {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(240deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+@keyframes waveMotion {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% {
+    transform: scale(1.1) rotate(120deg);
+    opacity: 0.5;
+  }
+  66% {
+    transform: scale(0.9) rotate(240deg);
+    opacity: 0.2;
+  }
+}
 .circuits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -99,19 +172,20 @@
 }
 
 .circuit-card {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.08);
   transition: 0.3s ease;
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  border: 1px solid #e0e0e0;
 }
 .circuit-card:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  transform: translateY(-6px);
+  box-shadow: rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
 }
 .circuit-card .circuit-card-link {
   text-decoration: none;
@@ -126,6 +200,7 @@
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
+  border-bottom: 1px solid #e0e0e0;
 }
 .circuit-card .circuit-image img {
   width: 100%;
@@ -142,11 +217,13 @@
   flex-grow: 1;
 }
 .circuit-card .circuit-info .circuit-name {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #333;
   margin: 0 0 15px 0;
   line-height: 1.3;
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 10px;
 }
 .circuit-card .circuit-info .circuit-details, .circuit-card .circuit-info .circuit-extra {
   display: flex;
@@ -154,7 +231,7 @@
   align-items: center;
   margin-bottom: 10px;
   font-size: 0.95rem;
-  color: #4a4a4a;
+  color: #555;
 }
 .circuit-card .circuit-info .circuit-details span, .circuit-card .circuit-info .circuit-extra span {
   display: flex;
@@ -167,13 +244,15 @@
 }
 .circuit-card .circuit-info .circuit-details .circuit-length, .circuit-card .circuit-info .circuit-extra .circuit-length {
   font-weight: 700;
-  color: #dc143c;
+  color: #007bff;
 }
 .circuit-card .circuit-info .circuit-details .circuit-turns, .circuit-card .circuit-info .circuit-extra .circuit-turns {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 500;
 }
 .circuit-card .circuit-info .circuit-details .circuit-year, .circuit-card .circuit-info .circuit-extra .circuit-year {
   font-weight: 500;
+  color: #555;
 }
 .circuit-card .circuit-actions {
   position: absolute;
@@ -193,22 +272,22 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.08);
 }
 .circuit-card .circuit-actions button:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 .circuit-card .circuit-actions .edit-btn {
   background-color: #007bff;
-  color: #fff;
+  color: #ffffff;
 }
 .circuit-card .circuit-actions .edit-btn:hover {
-  background-color: #0062cc;
+  background-color: #0056b3;
 }
 .circuit-card .circuit-actions .delete-btn {
   background-color: #dc143c;
-  color: #fff;
+  color: #ffffff;
 }
 .circuit-card .circuit-actions .delete-btn:hover {
   background-color: #b00f2e;
@@ -220,11 +299,11 @@
 .no-circuits {
   text-align: center;
   padding: 80px 20px;
-  color: #4a4a4a;
+  color: #555;
   font-size: 1.2rem;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.08);
   margin-top: 30px;
 }
 .no-circuits p {
@@ -243,6 +322,7 @@
   }
   .circuits-header {
     margin-bottom: 30px;
+    padding: 15px 20px;
   }
   .circuits-header .circuits-title {
     font-size: 1.8rem;
@@ -272,9 +352,18 @@
     opacity: 1;
     padding: 10px 15px;
     justify-content: center;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
     margin-top: auto;
+    box-shadow: none;
+    transform: none;
+  }
+  .add-circuit-modal {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .add-circuit-modal::before, .add-circuit-modal::after {
+    display: none;
   }
 }
 @media (max-width: 480px) {
