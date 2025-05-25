@@ -13,6 +13,7 @@ function SearchBar() {
           <li className="search-bar__nav-item"><Link to="/vehicles" className="search-bar__nav-link">Vehicles</Link></li>
           <li className="search-bar__nav-item"><Link to="/pilots" className="search-bar__nav-link">Pilot's</Link></li>
           <li className="search-bar__nav-item"><Link to="/circuits" className="search-bar__nav-link">Circuits</Link></li>
+          <li className="search-bar__nav-item"><Link to="/predictions" className="search-bar__nav-link">Predictions</Link></li>
         </ul>
       </nav>
     </div>

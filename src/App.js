@@ -11,6 +11,7 @@ import PilotDetail from './components/pilots/PilotDetail';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import CircuitsList from './components/circuits/CircuitsList';
 import CircuitDetails from './components/circuits/CircuitDetails';
+import PredictionComponent from './components/prediction/PredictionComponent';
 
 function App() {
     const location = useLocation();
@@ -36,6 +37,7 @@ function App() {
                     <Route path="/pilots/:id" element={<ProtectedRoute><PilotDetail /></ProtectedRoute>} />
                     <Route path="/circuits" element={<ProtectedRoute><CircuitsList /></ProtectedRoute>} />
                     <Route path="/circuits/:id" element={<ProtectedRoute><CircuitDetails /></ProtectedRoute>} />
+                    <Route path="/predictions" element={<ProtectedRoute><PredictionComponent /></ProtectedRoute>} />
 
                 </Routes>
             </div>
