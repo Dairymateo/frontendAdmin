@@ -1,61 +1,49 @@
 # F1 App - Frontend
 
-Esta es la aplicación frontend para la gestión de datos de la Fórmula 1, desarrollada con React.
+Este proyecto es el frontend de una aplicación para la gestión de datos de la Fórmula 1. Permite a los usuarios interactuar con información sobre pilotos, vehículos, circuitos y realizar predicciones.
 
 ## Tecnologías Utilizadas
 
-- React  
-- React Router DOM  
-- axios  
-- jwt-decode  
+* **React**
+* **React Router DOM**
+* **axios** (para peticiones HTTP)
+* **jwt-decode** (para manejar tokens JWT)
+* **CSS Modules**
 
 ## Dependencias
 
 ```json
 {
-  "@testing-library/dom": "^10.4.0",
-  "@testing-library/jest-dom": "^6.6.3",
-  "@testing-library/react": "^16.3.0",
-  "@testing-library/user-event": "^13.5.0",
   "axios": "^1.9.0",
-  "cors": "^2.8.5",
   "jwt-decode": "^4.0.0",
   "react": "^19.1.0",
   "react-dom": "^19.1.0",
-  "react-router-dom": "^7.5.3",
-  "react-scripts": "5.0.1",
-  "web-vitals": "^2.1.4"
+  "react-router-dom": "^7.5.3"
 }
 ```
 
 ## Instalación
 
-### Clonar el repositorio
+1. Clonar el repositorio:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO_FRONTEND>
+git clone <URL_DEL_REPOSITORIO>
 cd frontend
 ```
 
-### Instalar dependencias
+2. Instalar dependencias:
 
 ```bash
 npm install
 ```
 
-## Ejecución
-
-### Iniciar la aplicación
+3. Ejecutar la aplicación:
 
 ```bash
 npm start
 ```
 
-Esto ejecutará la aplicación en modo de desarrollo. Abre [http://localhost:3000](http://localhost:3000) para verla en tu navegador.
-
-## Despliegue
-
-La aplicación está desplegada en Render.
+La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
 
 ## Estructura del Proyecto
 
@@ -64,18 +52,54 @@ frontend/
 ├── public/
 ├── src/
 │   ├── components/
-│   │   ├── app/
-│   │   ├── auth/
-│   │   ├── pilots/
-│   │   ├── vehicles/
-│   ├── constants/
 │   ├── pages/
 │   ├── services/
-│   ├── App.js
-│   ├── index.js
+│   ├── styles/
+│   ├── App.jsx
+│   ├── main.jsx
+├── .gitignore
 ├── package.json
+├── README.md
 ```
 
-## Descripción
+## Funcionalidades
 
-Esta aplicación es un frontend de React para un sistema de gestión de datos de Fórmula 1. Permite a los usuarios interactuar con información sobre pilotos, vehículos, y posiblemente otra información relacionada con la F1. La aplicación utiliza React Router para la navegación, axios para hacer peticiones al backend, y jwt-decode para decodificar tokens web JSON.
+* **Gestión de pilotos**: Crear, leer, actualizar y eliminar pilotos.
+* **Gestión de vehículos**: Crear, leer, actualizar y eliminar vehículos.
+* **Gestión de circuitos**: Ver circuitos y rankings asociados.
+* **Autenticación**: Registro e inicio de sesión con JWT.
+
+## Endpoints Consumidos
+
+### Autenticación
+
+* `POST /auth/register` - Registro de usuarios.
+* `POST /auth/login` - Inicio de sesión.
+
+### Pilotos
+
+* `GET /pilots` - Obtener todos los pilotos.
+* `POST /pilots` - Crear un piloto.
+* `PATCH /pilots/:id` - Actualizar un piloto.
+* `DELETE /pilots/:id` - Eliminar un piloto.
+
+### Vehículos
+
+* `GET /vehicles` - Obtener todos los vehículos.
+* `POST /vehicles` - Crear un vehículo.
+* `PATCH /vehicles/:id` - Actualizar un vehículo.
+* `DELETE /vehicles/:id` - Eliminar un vehículo.
+
+### Circuitos
+
+* `GET /circuits` - Obtener todos los circuitos.
+* `GET /circuits/:id` - Obtener detalles de un circuito.
+* `POST /circuits` - Crear un circuito.
+* `PATCH /circuits/:id` - Actualizar un circuito.
+* `DELETE /circuits/:id` - Eliminar un circuito.
+
+## Despliegue
+
+El frontend está desplegado en Render y accesible en:
+
+👉 [https://frontendf1.onrender.com](https://frontendf1.onrender.com)
