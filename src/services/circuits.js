@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const API_URL = 'http://localhost:3000/circuits';
+const API_URL = 'https://frontendcore.onrender.com/circuits';
 
 
 export const getAllCircuits = async () => {

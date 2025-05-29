@@ -20,7 +20,7 @@ const PredictionComponent = () => {
     const [loadingCircuits, setLoadingCircuits] = useState(true);
     const [errorCircuits, setErrorCircuits] = useState(null);
 
-    const API_BASE_URL = 'http://localhost:3000'; // Confirma tu URL base del backend
+    const API_BASE_URL = 'https://frontendcore.onrender.com'; // Confirma tu URL base del backend
 
     // --- Función para cargar TODOS los circuitos (se ejecuta una vez al montar) ---
     const fetchAllCircuits = async () => {
