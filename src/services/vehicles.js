@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://frontendcore.onrender.com/vehicles";
+const API_URL = "https://coreweb.onrender.com/vehicles";
 
 
 export const getAllVehicles = async () => {

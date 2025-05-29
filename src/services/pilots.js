@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://frontendcore.onrender.com/pilots'
+const API_URL = 'https://coreweb.onrender.com/pilots'
 
 export const getAllPilots = async () => {
     try {

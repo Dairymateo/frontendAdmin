@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://frontendcore.onrender.com';
+const API_URL = 'https://coreweb.onrender.com';
 
 
 export const signup = async (userData) => {

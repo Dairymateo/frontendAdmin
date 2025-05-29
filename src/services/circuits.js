@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const API_URL = 'https://frontendcore.onrender.com';
+const API_URL = 'https://coreweb.onrender.com/circuits';
 
 
 export const getAllCircuits = async () => {
@@ -35,7 +35,7 @@ export const createCircuit = async (circuitData, token) => {
     try {
         const response = await axios.post(API_URL, circuitData, {
             headers: {
-                Authorization: `Bearer ${token}`, // Incluye el token en el encabezado
+                Authorization: `Bearer ${token}`, 
             },
         });
         return response.data;
